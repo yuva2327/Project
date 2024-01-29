@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+    <style>
+        td{
+            width:1px ;
+            height:1px;
+        }
+        #displayBox{
+          position: absolute;
+          left:200px;
+            border-collapse: collapse;
+             border-spacing: 0;
+            border:2px solid black ;
+        }
+        tr{
+            border: 0px solid red;
+        }
+        div{
+          border-radius: 50%;
+        }
+        #colortable{
+        position: relative;
+        left:1150px;
+        }
+        .colors{
+          width: 30px;
+			    height: 30px;
+			    border: 1px black solid;
+			    border-radius: 50px;
+        }
+    #AliceBlue   {background-color:AliceBlue; }
+		#AntiqueWhile{background-color:AntiqueWhile; }
+		#Aqua        {background-color:Aqua; }
+		#Aquamarine  {background-color:Aquamarine; }
+		#Beige       {background-color:Beige; }
+		#Bisque      {background-color:Bisque; }
+		#Black       {background-color:Black; }
+		#Blue        {background-color:Blue; }
+		#BlueViolet  {background-color:BlueViolet; }
+		#Brown       {background-color:Brown; }
+		#BurlyWood   {background-color:BurlyWood; }
+		#CadetBlue   {background-color:CadetBlue; }
+		#Chartreuse  {background-color:Chartreuse; }
+		#white       {background-color:white; }
+		#red         {background-color:red; }
+		#green       {background-color:green; }
+		#yellow      {background-color:yellow; }
+		#orenge      {background-color:orangered; }
+    </style>
+</head>
+<body>
+    <table id="displayBox"></table>
+    <div id="colortable">
+   <table>
+    <tr><div class="colors" id="AliceBlue" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="AntiqueWhile" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Aqua" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Aquamarine" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Beige" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Bisque" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Black" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Blue" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="BlueViolet" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Brown" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="BurlyWood" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="CadetBlue" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="Chartreuse" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="white" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="red" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="green" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="yellow" onclick="changecolor(event)"></div></tr>
+    <tr><div class="colors" id="orenge" onclick="changecolor(event)"></div></tr>
+  </table>
+  </div>
+    <script>
+        var cgcolor;
+        var table =document.getElementById("displayBox");
+
+        for(var a=0;a<=180;a++){
+            var row=document.createElement("tr");
+            for(var b=0;b<=310;b++){
+                var col=document.createElement("td");
+                col.setAttribute("onmouseover","chengebox(event)");
+                col.setAttribute("onmouseout","chengebox(event)");
+                row.appendChild(col);
+            }
+            table.appendChild(row); 
+        }
+      function chengebox(event){
+        event.target.style.backgroundColor=cgcolor.backgroundColor;
+      }
+
+      function changecolor(event) {
+        cgcolor=getComputedStyle(event.target);
+          }
+    </script>
+</body>
+</html>
