@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Find Game</title>
+    <style>
+        img{
+            width: 600px;
+            height: 800px;
+        }
+        #imageDiv{
+            border:17px groove red;
+            position: absolute;
+            top:40px;
+            left:400px;
+        }
+        .findDiv{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border:"0px solid red";
+        }
+        #find1{
+            z-index: 1;
+            top: 70px;
+            left:185px;
+        }
+        #find2{
+            z-index: 1;
+            top: -10px;
+            left:205px;
+        }
+        #find3{
+            z-index: 1;
+            top: 100px;
+            left:360px;
+        }
+        #find4{
+            z-index: 1;
+            top: 210px;
+            left:220px;
+        }
+        #find5{
+            z-index: 1;
+            top: 230px;
+            left:480px;
+        }
+        #find6{
+            z-index: 1;
+            top: 480px;
+            left:20px;
+        }
+        #find7{
+            z-index: 1;
+            top: 500px;
+            left:350px;
+        }
+        #find8{
+            z-index: 1;
+            top: 710px;
+            left:490px;
+        }
+        #find9{
+            z-index: 1;
+            top: 710px;
+            left:190px;
+        }
+        #find10{
+            z-index: 1;
+            top: 520px;
+            left:270px;
+        }
+        #find11{
+            z-index: 1;
+            top: 600px;
+            left:450px;
+        }
+        #find12{
+            z-index: 1;
+            top: 420px;
+            left:380px;
+        }
+        #option{
+            position: absolute;
+            top: 100px;
+            left: 1130px;
+        }
+        .showoption{
+        border: 3px solid blue;
+            width:100px;
+            height:100px;
+            opacity:1;
+        }
+        #table1{
+            z-index: 1;
+            display:none;
+            position: absolute;
+            top: 750px;
+            left:600px;
+        }
+        button{
+            background-color: gold;
+            font-size:20px;
+            border: 4px solid black;
+            border-radius:20px ;
+            width:130px;
+            height:45px;
+        }
+        #Timer{
+            position: absolute;
+            top:50px;
+            left:50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="Timer"></h1>
+    <div id="imageDiv"><img id="showImage" src="../image/firstImage/findImage1.jpeg">
+    <div id="find1"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find2"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find3"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find4"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find5"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find6"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find7"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find8"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find9"  class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find10" class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find11" class="findDiv" onclick="findimage(event)" ></div>
+    <div id="find12" class="findDiv" onclick="findimage(event)" ></div>
+    </div>
+    <div id="option">
+    <img src="../image/firstImage/findimage1_1.jpeg" id="Option1"  class="showoption">
+    <img src="../image/firstImage/findimage1_2.jpeg" id="Option2"  class="showoption">
+    <img src="../image/firstImage/findimage1_3.jpeg" id="Option3"  class="showoption">
+    <img src="../image/firstImage/findimage1_4.jpeg" id="Option4"  class="showoption">
+    <img src="../image/firstImage/findimage1_5.jpeg" id="Option5"  class="showoption">
+    <img src="../image/firstImage/findimage1_9.jpeg" id="Option6"  class="showoption">
+    <img src="../image/firstImage/findimage1_8.jpeg" id="Option7"  class="showoption">
+    <img src="../image/firstImage/findimage1_11.jpeg" id="Option8"  class="showoption">
+    <img src="../image/firstImage/findimage1_12.jpeg" id="Option9"  class="showoption">
+    <img src="../image/firstImage/findimage1_7.jpeg" id="Option10" class="showoption">
+    <img src="../image/firstImage/findimage1_10.jpeg" id="Option11" class="showoption">
+    <img src="../image/firstImage/findimage1_6.jpeg" id="Option12" class="showoption">
+    </div>
+    <table id="table1">
+        <tr><td><button onclick="retrybt()">Retry</button></td>
+            <td><button onclick="nextlaval()" id="nextlaval">Next Laval</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    var op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+
+    var Laval=1,time=90,tm;
+    var showImage=document.getElementById("showImage");
+    var find1=document.getElementById("find1");
+    var find2=document.getElementById("find2");
+    var find3=document.getElementById("find3");
+    var find4=document.getElementById("find4");
+    var find5=document.getElementById("find5");
+    var find6=document.getElementById("find6");
+    var find7=document.getElementById("find7");
+    var find8=document.getElementById("find8");
+    var find9=document.getElementById("find9");
+    var find10=document.getElementById("find10");
+    var find11=document.getElementById("find11");
+    var find12=document.getElementById("find12");
+    var Option1=document.getElementById("Option1");
+    var Option2=document.getElementById("Option2");
+    var Option3=document.getElementById("Option3");
+    var Option4=document.getElementById("Option4");
+    var Option5=document.getElementById("Option5");
+    var Option6=document.getElementById("Option6");
+    var Option7=document.getElementById("Option7");
+    var Option8=document.getElementById("Option8");
+    var Option9=document.getElementById("Option9");
+    var Option10=document.getElementById("Option10");
+    var Option11=document.getElementById("Option11");
+    var Option12=document.getElementById("Option12");
+    var table=document.getElementById("table1");
+    var Timer = document.getElementById("Timer");
+    var ntlaval = document.getElementById("nextlaval");
+    function findimage(event){
+       
+        event.target.style.border="10px solid red";
+        var idFind= event.target.id;
+        if(idFind=="find1"){
+            op1=1;
+            Option1.style.opacity="0.5"
+        }else if(idFind=="find2"){
+            op2=1;
+            Option2.style.opacity="0.5"
+        }else if(idFind=="find3"){
+            op3=1;
+            Option3.style.opacity="0.5"
+        }else if(idFind=="find4"){
+            op4=1;
+             Option4.style.opacity="0.5"
+        }else if(idFind=="find5"){
+            op5=1;
+            Option5.style.opacity="0.5"
+        }else if(idFind=="find6"){
+            op6=1;
+            Option6.style.opacity="0.5"
+        }else if(idFind=="find7"){
+            op7=1;
+            Option7.style.opacity="0.5"
+        }else if(idFind=="find8"){
+            op8=1;
+            Option8.style.opacity="0.5"
+        }else if(idFind=="find9"){
+            op9=1;
+            Option9.style.opacity="0.5"
+        }else if(idFind=="find10"){
+            op10=1;
+            Option10.style.opacity="0.5"
+        }else if(idFind=="find11"){
+            op11=1;
+            Option11.style.opacity="0.5"
+        }else if(idFind=="find12"){
+            op12=1;
+            Option12.style.opacity="0.5"
+        }
+        if(op1==1&&op2==1&&op3==1&&op4==1&&op5==1&&op6==1&&
+         op7==1&&op8==1&&op9==1&&op10==1&&op11==1&&op12==1&&Laval==1){
+            table.style.display="inline";
+            ntlaval.style.display="inline";
+            clearInterval(tm);
+         }else if(op1==1&&op2==1&&op3==1&&op4==1&&op5==1&&op6==1&&
+         op7==1&&op8==1&&Laval==2){
+            table.style.display="inline";
+            ntlaval.style.display="inline";
+            clearInterval(tm);
+         }
+        }
+
+        function nextlaval2(){
+         table.style.display="none";
+        showImage.src="../image/secondImage/secendImage_1.jpeg";
+        find1.style.border="0px solid red";
+        find2.style.border="0px solid red";
+        find3.style.border="0px solid red";
+        find4.style.border="0px solid red";
+        find5.style.border="0px solid red";
+        find6.style.border="0px solid red";
+        find7.style.border="0px solid red";
+        find8.style.border="0px solid red";
+        find9.style.display="none";
+        find10.style.display="none";
+        find11.style.display="none";
+        find12.style.display="none";
+        find1.style.left="445px";  find1.style.top="466px"; 
+        find2.style.left="115px";  find2.style.top="340px";
+        find3.style.left="220px";  find3.style.top="305px";
+        find4.style.left="40px";   find4.style.top="578px";
+        find5.style.left="515px";  find5.style.top="30px";
+        find6.style.left="230px";  find6.style.top="430px";
+        find7.style.left="255px";  find7.style.top="50px";
+        find8.style.left="485px";  find8.style.top="195px";
+        Option1.src="../image/secondImage/secondImage1_1.png";
+        Option2.src="../image/secondImage/secondImage1_2.png";
+        Option3.src="../image/secondImage/secondImage1_3.png";
+        Option4.src="../image/secondImage/secondImage1_4.png";
+        Option5.src="../image/secondImage/secondImage1_5.png";
+        Option6.src="../image/secondImage/secondImage1_6.png";
+        Option7.src="../image/secondImage/secondImage1_7.png";
+        Option8.src="../image/secondImage/secondImage1_8.png";
+        Option9.style.display="none";
+        Option10.style.display="none";
+        Option11.style.display="none";
+        Option12.style.display="none";
+        Option1.style.opacity="1";
+        Option2.style.opacity="1";
+        Option3.style.opacity="1";
+        Option4.style.opacity="1";
+        Option5.style.opacity="1";
+        Option6.style.opacity="1";
+        Option7.style.opacity="1";
+        Option8.style.opacity="1";
+        op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+        Laval=2;
+        }
+
+        function nextlaval3(){
+            table.style.display="none";
+            find9.style.display="inline";
+            find10.style.display="inline";
+        showImage.src="../image/thirdImage/thirdimage1.png";
+        find1.style.border="0px solid red";
+        find2.style.border="0px solid red";
+        find3.style.border="0px solid red";
+        find4.style.border="0px solid red";
+        find5.style.border="0px solid red";
+        find6.style.border="0px solid red";
+        find7.style.border="0px solid red";
+        find8.style.border="0px solid red";
+        find9.style.border="0px solid red";
+        find10.style.border="0px solid red";
+        find11.style.display="none";
+        find12.style.display="none";
+        find1.style.left="455px";  find1.style.top="666px"; 
+        find2.style.left="145px";  find2.style.top="545px";
+        find3.style.left="260px";  find3.style.top="700px";
+        find4.style.left="10px";   find4.style.top="570px";
+        find5.style.left="430px";  find5.style.top="420px";
+        find6.style.left="210px";  find6.style.top="420px";
+        find7.style.left="265px";  find7.style.top="460px";
+        find8.style.left="330px";  find8.style.top="700px";
+        find9.style.left="305px";  find9.style.top="560px";
+        find10.style.left="85px";  find10.style.top="440px";
+        Option1.style.display="none";
+        Option2.style.display="none";
+        Option3.style.display="none";
+        Option4.style.display="none";
+        Option5.style.display="none";
+        Option6.style.display="none";
+        Option7.style.display="none";
+        Option8.style.display="none";
+        Option9.style.display="none";
+        Option10.style.display="none";
+        Option11.style.display="none";
+        Option12.style.display="none";
+        Option1.style.opacity="1";
+        Option2.style.opacity="1";
+        Option3.style.opacity="1";
+        Option4.style.opacity="1";
+        Option5.style.opacity="1";
+        Option6.style.opacity="1";
+        Option7.style.opacity="1";
+        Option8.style.opacity="1";
+        op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+        Laval=3;
+        }
+
+        function nextlaval(){
+            clearInterval(tm);
+            time=90;
+            tm=setInterval(timer,1000);
+            if(Laval==1){
+                nextlaval2();
+            }else if(Laval==2){
+                nextlaval3();
+            }
+        }
+
+        function retrybt(){
+            time=80;
+            tm=setInterval(timer,1000);
+            if(Laval==1){
+        Laval=1;
+        op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+        find1.style.border="0px solid red";
+        find2.style.border="0px solid red";
+        find3.style.border="0px solid red";
+        find4.style.border="0px solid red";
+        find5.style.border="0px solid red";
+        find6.style.border="0px solid red";
+        find7.style.border="0px solid red";
+        find8.style.border="0px solid red";
+        find9.style.border="0px solid red";
+        find10.style.border="0px solid red";
+        find11.style.border="0px solid red";
+        find12.style.border="0px solid red";
+        Option1.style.opacity="1";
+        Option2.style.opacity="1";
+        Option3.style.opacity="1";
+        Option4.style.opacity="1";
+        Option5.style.opacity="1";
+        Option6.style.opacity="1";
+        Option7.style.opacity="1";
+        Option8.style.opacity="1";
+        Option9.style.opacity="1";
+        Option10.style.opacity="1";
+        Option11.style.opacity="1";
+        Option12.style.opacity="1";
+        table.style.display="none";
+
+    }else if(Laval==2){
+        Laval=2;
+        op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+         find1.style.border="0px solid red";
+        find2.style.border="0px solid red";
+        find3.style.border="0px solid red";
+        find4.style.border="0px solid red";
+        find5.style.border="0px solid red";
+        find6.style.border="0px solid red";
+        find7.style.border="0px solid red";
+        find8.style.border="0px solid red";
+        find9.style.display="none";
+        find10.style.display="none";
+        find11.style.display="none";
+        find12.style.display="none";
+        Option1.style.opacity="1";
+        Option2.style.opacity="1";
+        Option3.style.opacity="1";
+        Option4.style.opacity="1";
+        Option5.style.opacity="1";
+        Option6.style.opacity="1";
+        Option7.style.opacity="1";
+        Option8.style.opacity="1";
+       
+
+     }else if(Laval==3){
+        Laval=2;
+        op1=0,op2=0,op3=0,op4=0,op5=0,op6=0,op7=0,op8=0,op9=0,op10=0,op11=0,op12=0;
+        find1.style.border="0px solid red";
+        find2.style.border="0px solid red";
+        find3.style.border="0px solid red";
+        find4.style.border="0px solid red";
+        find5.style.border="0px solid red";
+        find6.style.border="0px solid red";
+        find7.style.border="0px solid red";
+        find8.style.border="0px solid red";
+        find9.style.border="0px solid red";
+        find10.style.border="0px solid red";
+        find11.style.display="none";
+        find12.style.display="none";
+
+            }
+            table.style.display="none";
+            
+        }
+        tm=setInterval(timer,1000);
+        function timer(){
+            time--;
+            Timer.textContent="Time :"+time;
+            console.log(time);
+            if(time>0&&time<8){
+
+                if(time % 2 === 0){//this is change the color in time number
+                Timer.style.color="red";
+                }else{
+                Timer.style.color="black";
+                }
+            }else{
+                Timer.style.color="black";
+            }
+
+            if(time<0){//this is "hide the display" and timer sound
+                var bor1=getComputedStyle(find1);
+                var bor2=getComputedStyle(find2);
+                var bor3=getComputedStyle(find3);
+                var bor4=getComputedStyle(find4);
+                var bor5=getComputedStyle(find5);
+                var bor6=getComputedStyle(find6);
+                var bor7=getComputedStyle(find7);
+                var bor8=getComputedStyle(find8);
+                var bor9=getComputedStyle(find9);
+                var bor10=getComputedStyle(find10);
+                var bor11=getComputedStyle(find11);
+                var bor12=getComputedStyle(find12);
+                var selectcol="10px solid rgb(255, 0, 0)";
+                //console.log(bor2.border);
+               if(bor1.border!=selectcol){
+                find1.style.border="10px solid green";
+                }
+                if(bor2.border!=selectcol){
+                find2.style.border="10px solid green";
+                }
+                if(bor3.border!=selectcol){
+                find3.style.border="10px solid green";
+                 }
+                if(bor4.border!=selectcol){
+                find4.style.border="10px solid green";
+                }
+                if(bor5.border!=selectcol){
+                find5.style.border="10px solid green";
+                 }
+                if(bor6.border!=selectcol){
+                find6.style.border="10px solid green";
+                }
+                if(bor7.border!=selectcol){
+                find7.style.border="10px solid green";
+                }
+                if(bor8.border!=selectcol){
+                find8.style.border="10px solid green";
+                }
+                if(bor9.border!=selectcol){
+                find9.style.border="10px solid green";
+                }
+                if(bor10.border!=selectcol){
+                find10.style.border="10px solid green";
+                 }
+                if(bor11.border!=selectcol){
+                find11.style.border="10px solid green";
+                }
+                if(bor12.border!=selectcol){
+                find12.style.border="10px solid green";
+                }
+                clearInterval(tm);
+                table.style.display="inline";
+                ntlaval.style.display="none";
+
+            }
+        }
+</script>
+</body>
+</html>

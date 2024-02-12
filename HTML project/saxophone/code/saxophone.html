@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saxophone</title>
+    <Style>
+        img{
+            position: absolute;
+            left: 400px;
+        }
+        .smbt{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid black;
+            position: absolute;
+        }
+        #sound1{
+            background-color: red;
+            top:108px;
+            left: 580px;
+        }
+        #sound2{
+            background-color: green;
+            top:151px;
+            left: 573px;
+        }
+        #sound3{
+            background-color: rgb(128, 0, 122);
+            top:180px;
+            left: 593px;
+        }
+        #sound4{
+            background-color: rgb(0, 107, 128);
+            top:210px;
+            left: 598px;
+        }
+        #sound5{
+            background-color: rgb(0, 23, 128);
+            top:243px;
+            left: 600px;
+        }
+        #sound6{
+            width:35px ;
+            height:35px ;
+            background-color: rgb(108, 74, 178);
+            top:275px;
+            left: 606px;
+        }
+    </Style>
+</head>
+<body>
+    <img src="../music/saxophone.png">
+    <div id="sound1" class="smbt" onclick="sound1()"></div>
+    <div id="sound2" class="smbt" onclick="sound2()"></div>
+    <div id="sound3" class="smbt" onclick="sound3()"></div>
+    <div id="sound4" class="smbt" onclick="sound4()"></div>
+    <div id="sound5" class="smbt" onclick="sound5()"></div>
+    <div id="sound6" class="smbt" onclick="sound6()"></div>
+    
+    <audio id="music1" autoplay><source src="../music/music1.mp3"></audio>
+    <audio id="music2" autoplay><source src="../music/music2.mp3"></audio>
+    <audio id="music3" autoplay><source src="../music/music3.mp3"></audio>
+    <audio id="music4" autoplay><source src="../music/music4.mp3"></audio>
+    <audio id="music5" autoplay><source src="../music/music5.mp3"></audio>
+    <audio id="music6" autoplay><source src="../music/music6.mp3"></audio>
+    <script>
+        var music1=document.getElementById("music1");
+        var music2=document.getElementById("music2");
+        var music3=document.getElementById("music3");
+        var music4=document.getElementById("music4");
+        var music5=document.getElementById("music5");
+        var music6=document.getElementById("music6");
+
+        function sound1(){music1.play()}
+        function sound2(){music2.play()}
+        function sound3(){music3.play()}
+        function sound4(){music4.play()}
+        function sound5(){music5.play()}
+        function sound6(){music6.play()}
+
+    </script>
+</body>
+</html>

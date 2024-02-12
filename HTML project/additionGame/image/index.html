@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hh</title>
+  <style>
+    #headLine{
+      text-decoration: underline;
+      color:brown;
+      text-shadow: 0px 0px 10px white,0px 0px 10px green;
+      font-family: Cooper Black;
+      position: absolute;
+      top: 180px;
+      left: 580px;
+      font-size: 60px;
+    }
+    h2{
+      display: inline;
+    }
+    #A1{
+      background-image: url('https://w0.peakpx.com/wallpaper/1014/855/HD-wallpaper-brown-wood-shades-aesthetic-brown-aesthetic.jpg');
+      height: 300px;
+      width: 600px;
+      color: white;
+      position: absolute;
+      top: 300px;
+      left: 600px;
+      border: 15px ridge brown;
+    }
+    #A2{
+      position: relative;
+      top: 50px;
+      left: 150px;
+    }
+    input{
+      width: 60px;
+      height: 40px;
+      font-size: 30px;
+      display: none;
+
+    }
+
+    #result{
+      position: absolute;
+      top: 9px;
+      font-size: 50px;
+    }
+    #light{
+      height: 60px;
+      width: 60px;
+      position: relative;
+      top: 10px;
+      left: 520px;
+    }
+    #monkey{
+      position: absolute;
+      top: -30px;
+      left: 613px;
+      height: 300px;
+      width: 160px;
+
+    }
+    #monkey2{
+     height: 200px;
+     width: 150px;
+     position: absolute;
+     left: 480px;
+     top: 380px;
+    }
+    .text{
+      font-size: 40px;
+      
+    }
+    #speaker{
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 790px;
+      left: 300px;
+      rotate: -25deg;
+    }
+
+   body{
+    background-image: url('https://s3.amazonaws.com/gameartpartnersimagehost/wp-content/uploads/2020/08/Forest1.jpg');
+    background-repeat: no-repeat;
+   }
+   #option{
+    display: none;
+    color: white;
+    word-spacing: 40px;
+    position: absolute;
+    top: 650px;
+    left: 660px;
+   }
+   #play{
+    font-family: Cooper Black;
+    position: absolute;
+    top: 710px;
+    left: 1450px;
+    text-shadow: 0px 0px 10px white;
+   }
+   #start{
+    position: absolute;
+    left: 50px;
+    top: -20px;
+    font-family: Cooper Black;
+    font-size: 40px;
+     text-decoration: underline;
+   }
+   #submit{
+    font-family: Cooper Black;
+    width: 100px;
+    height: 30px;
+    display: none;
+   }
+   #num1{
+    display: none;
+   }
+   #num2{
+    display: none;
+   }
+   #num4{
+    display: none;
+   }
+   #num5{
+    display:none;
+   }
+   
+  </style>
+</head>
+<body onclick="sound()">
+  <h1 id="headLine">WelCome to Addition game </h1>
+ <img src="monkey1.png" id="monkey2">
+ <h1 id="time"></h1>
+<div id="A1">
+  <img  src="light_bulb.png" id="light" onclick="Awnser()">
+  <img src="monkey2.gif" id="monkey">
+  <div id="A2">
+    <h1 id="start">START</h1>
+  <h2 id="num1" class="text"></h2>
+  <h2 id="num4" class="text">+</h2>
+  <h2 id="num2" class="text"></h2>
+  <h2 id="num5" class="text">=</h2>
+  <h2><input type="number" id='get' > </h2>
+  <button onclick="x()" id="submit">Submit</button>
+  <h3 id="result"></h3>
+</div>
+</div>
+<h1 id="option"></h1>
+<h1 id=play onclick="play_music()">Play</h1>
+<img src="onspeker.png" id="speaker" onclick="speaker()">
+<audio id="music" loop><source src="Make It Loud Edit02.mp3" type="mp3"> </audio>
+  <script> 
+  
+    function start() {
+            var ft_num=document.getElementById('num1');
+            var sec_num=document.getElementById('num2');
+            var num1 = Math.floor(Math.random() * 100) + 1;
+            var num2 = Math.floor(Math.random() * 100) + 1;
+            ft_num.textContent=num1;
+            sec_num.textContent=num2;
+            var gete=document.getElementById('get');
+            gete.value=null;
+            var result=document.getElementById('result');
+            result.textContent=" ";
+
+   return num1+num2;
+ }
+
+ var num3=start();
+
+ function x(){
+              var gete=document.getElementById('get');
+              var result=document.getElementById('result');
+              var Aws=gete.value;
+
+              if(Aws==num3){
+              result.textContent="correct";
+              option.textContent=null;
+             setTimeout(start2, 2000);
+              }else {
+              result.textContent="Wrong";
+              gete.value=null;
+              }
+            }
+
+    function start2(){
+     this.num3=start();
+    }
+
+   
+    var Asw2 = Math.floor(Math.random() * 15) + 1;
+    var Asw4 = Math.floor(Math.random() * 20) + 1;
+    var Asw1 = Math.floor(Math.random() * 10) + 1;
+
+function Awnser(){
+    var option=document.getElementById('option');
+    const choose = Math.floor(Math.random() *4) ;
+    if(choose==0){
+      choose=1;
+    }
+    switch (choose){
+    case 1:var Assw1=num3-Asw1;
+           var Assw2=num3-Asw2;
+           var Assw3=num3;//-Asw3;
+           var Assw4=num3-Asw4;
+           option.textContent="A)"+Assw1+" "+"B)"+Assw2+" "+"C)"+Assw3+" "+"D)"+Assw4;
+           break;
+    case 2:var Assw1=num3;
+           var Assw2=num3-Asw2;
+           var Assw3=num3-Asw1;//-Asw3;
+           var Assw4=num3-Asw4;
+          option.textContent="A)"+Assw1+" "+"B)"+Assw2+" "+"C)"+Assw3+" "+"D)"+Assw4;
+           break;
+    case 3:var Assw1=num3-Asw1;
+           var Assw2=num3;
+           var Assw3=num3-Asw2;//-Asw3;
+           var Assw4=num3-Asw4;
+          optiont.textContent="A)"+Assw1+" "+"B)"+Assw2+" "+"C)"+Assw3+" "+"D)"+Assw4;
+           break;
+    case 4:var Assw1=num3-Asw1;
+           var Assw2=num3-Asw2;
+           var Assw3=num3-Asw4;//-Asw3;
+           var Assw4=num3;
+            option.textContent="A)"+Assw1+" "+"B)"+Assw2+" "+"C)"+Assw3+" "+"D)"+Assw4;
+           break;
+    default :var Assw1=num3-Asw1;
+           var Assw2=num3-Asw2;
+           var Assw3=num3-Asw4;//-Asw3;
+           var Assw4=num3;
+            option.textContent="A)"+Assw1+" "+"B)"+Assw2+" "+"C)"+Assw3+" "+"D)"+Assw4;
+           break;
+ }
+}
+
+  function play_music(){
+    this.audio1.pause();
+    audio=new Audio("jungale.mpeg");
+      audio.play();
+
+      var start=document.getElementById("start");// this is remove the start letter
+      start.remove();
+
+      var one=document.getElementById("num1");
+      one.style.display="inline";
+      var two=document.getElementById("num2");
+      two.style.display="inline";
+      var three=document.getElementById("num4");
+      three.style.display="inline";
+      var four=document.getElementById("num5");
+      four.style.display="inline";
+      var submit=document.getElementById("submit");
+      submit.style.display="inline";
+      var get=document.getElementById("get");
+      get.style.display="inline";
+      var option=document.getElementById("option");
+      option.style.display="inline";
+
+      
+  }
+  var sp=0
+ function speaker(){
+  if(sp==0){
+  document.getElementById("speaker").src ="mute.png";
+   sp=1;
+   this.audio1.pause();
+   this.audio.pause();
+}else if(sp==1){
+
+  document.getElementById("speaker").src="onspeker.png";
+  sp=0;
+    this.audio.play();
+  }
+
+}
+
+var a=0;
+    function sound(){
+    if( a==1){
+      audio1=new Audio("Make It Loud Edit02.mp3");
+      audio1.play();
+    }
+    a++;
+  }
+  </script>
+</body>
+</html>

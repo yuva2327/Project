@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum set</title>
+    <style>
+         #tamte1{
+            position: absolute;
+            top:540px;
+            left: 330px;
+        }
+        #tamte2{
+            position: absolute;
+            top:260px;
+            left: 1030px;
+        }
+        #tamte3{
+            position: absolute;
+            top:200px;
+            left:600px;
+        }
+        #tamte4{
+            width:300px ;
+            height:300px ;
+            position: absolute;
+            top:670px;
+            left: 1080px;
+        }
+        #tamte5{
+            width:350px;
+            height: 450px;
+            position: absolute;
+            top:500px;
+            left:1360px;
+        }
+        #tamte6{
+            z-index: -1;
+            position: absolute;
+            top:300px;
+            left:250px;
+        }
+        #tamte7{
+            width:300px ;
+            height:300px ;
+            position: absolute;
+            top:670px;
+            left: 800px;
+        }
+        #dish{
+            width: 300px;
+            position: absolute;
+            top: 190px;
+            left:416px;
+        }
+        #tamte8{
+            z-index:-1;
+            position: absolute;
+            top:400px;
+            left:560px;
+        }
+        #tamte9{
+            z-index:-1;
+            position: absolute;
+            top:400px;
+            left:1000px;
+        }
+        #a1{
+            z-index: 1;
+            width: 210px;
+            height: 90px;
+            position:absolute;
+            top:710px;
+            left: 380px;
+        }
+        #a1_1{
+            z-index: 1;
+            width: 165px;
+            height: 60px;
+            position:absolute;
+            top:660px;
+            left: 610px;
+        }
+        #a2{
+            z-index: 1;
+            width: 410px;
+            height: 200px;
+            position:absolute;
+            top:330px;
+            left: 640px;
+        }
+        #a3{
+            z-index: 1;
+            width: 390px;
+            height: 200px;
+            position:absolute;
+            top:320px;
+            left: 1100px;
+        }
+        #a4{
+            z-index: 1;
+            width: 250px;
+            height: 110px;
+            position:absolute;
+            top:690px;
+            left: 1100px;
+        }
+        #a5{
+            z-index: 1;
+            width: 180px;
+            height: 430px;
+            position:absolute;
+            top:500px;
+            left: 1500px;
+        }
+        #a6{
+            z-index: 1;
+            width: 270px;
+            height: 80px;
+            position:absolute;
+            top:225px;
+            left: 420px;
+        }
+        #a7{
+            z-index: 1;
+            width: 250px;
+            height: 130px;
+            position:absolute;
+            top:680px;
+            left: 820px;
+        }
+    </style>
+</head>
+<body>
+    <div id="a1" onclick="tamte1()"></div>
+    <div id="a1_1" onclick="tamte1()"></div>
+    <div id="a2" onclick="tamte2()"></div>
+    <div id="a3" onclick="tamte3()"></div>
+    <div id="a4" onclick="tamte4()"></div>
+    <div id="a5" onclick="tamte5()"></div>
+    <div id="a6" onclick="tamte6()"></div>
+    <div id="a7" onclick="tamte7()"></div>
+    <img id="tamte1" src="../image/tamte1.png" >
+    <img id="tamte2" src="../image/tamte2.png" >
+    <img id="tamte3" src="../image/tamte3.png" >
+    <img id="tamte4" src="../image/tamte4.png" >
+    <img id="tamte5" src="../image/tamte5.png" >
+    <img id="tamte6" src="../image/tamte6.png" >
+    <img id="dish" src="../image/dish.png">
+    <img id="tamte7" src="../image/tamte4.png" >
+    <img id="tamte8" src="../image/tamte6.png" >
+    <img id="tamte9" src="../image/tamte6.png" >
+
+    <audio id="music1" autoplay><source src="../music/tamte1.mp3"></audio>
+    <audio id="music2" autoplay><source src="../music/tamte2.mp3"></audio>
+    <audio id="music3" autoplay><source src="../music/tamte3.mp3"></audio>
+    <audio id="music4" autoplay><source src="../music/tamte4.mp3"></audio>
+    <audio id="music5" autoplay><source src="../music/tamte5.mp3"></audio>
+    <audio id="music6" autoplay><source src="../music/tamte6.mp3"></audio>
+    <audio id="music7" autoplay><source src="../music/tamte7.mp3"></audio>
+
+    <script>
+        var music1 = document.getElementById("music1");
+        var music2 = document.getElementById("music2");
+        var music3 = document.getElementById("music3");
+        var music4 = document.getElementById("music4");
+        var music5 = document.getElementById("music5");
+        var music6 = document.getElementById("music6");
+        var music7 = document.getElementById("music7");
+
+        function tamte1(){
+            console.log("hii");
+            music1.play();
+        }
+        function tamte2(){
+            music2.play();
+        }
+        function tamte3(){
+            music3.play();
+        }
+        function tamte4(){
+            music4.play();
+        }
+        function tamte5(){
+            music5.play();
+        }
+        function tamte6(){
+            music6.play();
+        }
+        function tamte7(){
+            music7.play();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>piano</title>
+    <style>
+        span{
+            background-color: white;
+            width: 55px;
+            height: 280px;
+            border:2px solid black;
+            display: inline-block;
+         
+        }
+        span:hover{
+            background-color:darkgray;
+        }
+        #main{
+            height: 250px;
+            min-width:300x;
+        }
+        #main{
+            background-color: black;
+            position: relative;
+            top: 70px;
+            left:30px;
+            height: 330px;
+            width:1270px;
+            padding:25px ;
+        }
+        #sub{
+            background-color: brown;
+            padding:10px;
+            height: 280px;
+            width:1250px;
+        }
+        .innerbt{
+           position: relative;
+           left:15px;
+            background-color: black;
+            width: 20px;
+            height: 180px;
+        }
+        .innerbt:hover{
+            background-color: rgb(13, 10, 9);
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="main">
+    <div id="sub">
+        <span id="A1"  onclick="sound(1)" > <span class="innerbt"></span></span>
+        <span id="A2"  onclick="sound(2)" > <span class="innerbt"></span></span>
+        <span id="A3"  onclick="sound(3)" > <span class="innerbt"></span></span>
+        <span id="A4"  onclick="sound(4)" > <span class="innerbt"></span></span>
+        <span id="A5"  onclick="sound(5)" > <span class="innerbt"></span></span>
+        <span id="A6"  onclick="sound(6)" > <span class="innerbt"></span></span>
+        <span id="A7"  onclick="sound(7)" > <span class="innerbt"></span></span>
+        <span id="A8"  onclick="sound(8)" > <span class="innerbt"></span></span>
+        <span id="A9"  onclick="sound(9)" > <span class="innerbt"></span></span>
+        <span id="A10" onclick="sound(10)" ><span class="innerbt"></span></span>
+        <span id="A11" onclick="sound(11)" ><span class="innerbt"></span></span>
+        <span id="A12" onclick="sound(12)" ><span class="innerbt"></span></span>
+        <span id="A13" onclick="sound(13)" ><span class="innerbt"></span></span>
+        <span id="A14" onclick="sound(14)" ><span class="innerbt"></span></span>
+        <span id="A15" onclick="sound(15)" ><span class="innerbt"></span></span>
+        <span id="A16" onclick="sound(16)" ><span class="innerbt"></span></span>
+        <span id="A17" onclick="sound(17)" ><span class="innerbt"></span></span>
+        <span id="A18" onclick="sound(18)" ><span class="innerbt"></span></span>
+        <span id="A19" onclick="sound(19)" ><span class="innerbt"></span></span>
+        <span id="A20" onclick="sound(20)" ><span class="innerbt"></span></span>
+    </div>
+    </div>
+    <audio id="music1" autoplay><source src="./music/f1.mp3"></audio>
+    <audio id="music2" autoplay><source src="./music/f2.mp3"></audio>
+    <audio id="music3" autoplay><source src="./music/f3.mp3"></audio>
+    <audio id="music4" autoplay><source src="./music/f4.mp3"></audio>
+    <audio id="music5" autoplay><source src="./music/f5.mp3"></audio>
+    <audio id="music6" autoplay><source src="./music/f6.mp3"></audio>
+    <audio id="music7" autoplay><source src="./music/f7.mp3"></audio>
+    <audio id="music8" autoplay><source src="./music/f8.mp3"></audio>
+    <audio id="music9" autoplay><source src="./music/f9.mp3"></audio>
+    <audio id="music10" autoplay><source src="./music/f10.mp3"></audio>
+    <audio id="music11" autoplay><source src="./music/f11.mp3"></audio>
+    <audio id="music12" autoplay><source src="./music/f12.mp3"></audio>
+    <audio id="music13" autoplay><source src="./music/f13.mp3"></audio>
+    <audio id="music14" autoplay><source src="./music/f14.mp3"></audio>
+    <audio id="music15" autoplay><source src="./music/f15.mp3"></audio>
+    <audio id="music16" autoplay><source src="./music/f16.mp3"></audio>
+    <audio id="music17" autoplay><source src="./music/f17.mp3"></audio>
+    <audio id="music18" autoplay><source src="./music/f18.mp3"></audio>
+    <audio id="music19" autoplay><source src="./music/f19.mp3"></audio>
+    <audio id="music10" autoplay><source src="./music/f20.mp3"></audio>
+    <script>
+        var music1=document.getElementById("music1");
+        var music2=document.getElementById("music2");
+        var music3=document.getElementById("music3");
+        var music4=document.getElementById("music4");
+        var music5=document.getElementById("music5");
+        var music6=document.getElementById("music6");
+        var music7=document.getElementById("music7");
+        var music8=document.getElementById("music8");
+        var music9=document.getElementById("music9");
+        var music10=document.getElementById("music10");
+        var music11=document.getElementById("music11");
+        var music12=document.getElementById("music12");
+        var music13=document.getElementById("music13");
+        var music14=document.getElementById("music14");
+        var music15=document.getElementById("music15");
+        var music16=document.getElementById("music16");
+        var music17=document.getElementById("music17");
+        var music18=document.getElementById("music18");
+        var music19=document.getElementById("music19");
+        var music20=document.getElementById("music20");
+
+        document.addEventListener('keydown', function(event) {
+             var keyValue = event.keyCode;
+
+            if(keyValue==81){        music1.play();
+            }else if(keyValue==87){  music2.play();
+            }else if(keyValue==69){  music3.play();
+            }else if(keyValue==82){  music4.play();
+            }else if(keyValue==84){  music5.play();
+            }else if(keyValue==89){  music6.play();
+            }else if(keyValue==85){  music7.play();
+            }else if(keyValue==73){  music8.play();
+            }else if(keyValue==79){  music9.play();
+            }else if(keyValue==80){  music10.play();
+            }else if(keyValue==65){  music11.play();
+            }else if(keyValue==83){  music12.play();
+            }else if(keyValue==68){  music13.play();
+            }else if(keyValue==70){  music14.play();
+            }else if(keyValue==71){  music15.play();
+            }else if(keyValue==72){  music16.play();
+            }else if(keyValue==74){  music17.play();
+            }else if(keyValue==75){  music18.play();
+            }else if(keyValue==76){  music19.play();
+            }else if(keyValue==186){ music20.play();
+            }else{                   music1.play();
+            }
+
+
+          });
+
+        function sound(num){
+            if(num==1){          music1.play();
+            }else if(num==2){    music2.play();
+            }else if(num==3){    music3.play();
+            }else if(num==4){    music4.play();
+            }else if(num==5){    music5.play();
+            }else if(num==6){    music6.play();
+            }else if(num==7){    music7.play();
+            }else if(num==8){    music8.play();
+            }else if(num==9){    music9.play();
+            }else if(num==10){   music10.play();
+            }else if(num==11){   music11.play();
+            }else if(num==12){   music12.play();
+            }else if(num==13){   music13.play();
+            }else if(num==14){   music14.play();
+            }else if(num==15){   music15.play();
+            }else if(num==16){   music16.play();
+            }else if(num==17){   music17.play();
+            }else if(num==18){   music18.play();
+            }else  if(num==19){  music19.play();
+            }else if(num==20){   music20.play();
+            }else{               music1.play();
+            }
+        }
+    </script>
+
+</body>
+</html>
