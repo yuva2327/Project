@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition Game</title>
+    <style>
+        body{
+            background-image: url("../image/forestImage.jpg");
+            background-repeat: no-repeat;
+        }
+        #main{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            top: 200px;
+            left:750px;
+        }
+        span{
+           font-size: 30px;
+           color: white;
+           text-decoration: underline;
+        }
+        #light_bulb{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 60px;
+            right:-40px;
+            z-index:1;
+        }
+        #monkey1{
+            position: absolute;
+            top:150px;
+            left: -230px;
+            width: 150px;
+            height: 200px;
+        }
+        #monkey2{
+            position: absolute;
+            left: 490px;
+            height: 300px;
+            width: 160px;
+        }
+
+        #onspeker{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top:590px;
+            right: 820px;
+            rotate: -25deg;
+        }
+
+        #sub{
+            background-image: url("../image/back.jpg");
+            border: 10px groove brown;
+            position: relative;
+            left: -80px;
+            width: 550px;
+            height: 300px;
+        }
+        #Timer{
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            display: none;
+            color: white;
+        }
+        button{
+            display: none;
+            width:60px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: rgb(149, 69, 13);
+            color: white;
+        }
+        #option1{
+            position: absolute;
+            top: 210px;
+            left: 130px;
+        }
+        #option2{
+            position: absolute;
+            top: 210px;
+            left: 200px;
+        }
+        #option3{
+            position: absolute;
+            top: 210px;
+            left: 270px;
+        }
+        #option4{
+            position: absolute;
+            top: 210px;
+            left: 340px;
+        }
+        #display{
+            display: none;
+            color: white;
+            font-size: 40px;
+            text-decoration: none;
+            position: absolute;
+            top: 90px;
+            left: 120px;
+
+        }
+        #playbutton{
+            background-color: burlywood;
+            position: absolute;
+            top: 95px;
+            left: 190px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 10px groove brown;
+        }
+        #playbt{
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            position: absolute;
+            top: 180px;
+            left: 165px;
+        }
+        input{
+            display: none;
+            width: 75px;
+            height:45px;
+            font-size: 25px;
+            text-decoration: none;
+            position: absolute;
+            top: 90px;
+            left:290px;
+        }
+        #sumbit{
+            border-radius:5px;
+            color: white;
+            background-color:rgb(222, 109, 27);
+            height: 30px;
+            width: 80px;
+            font-size: 20px;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+        }
+        #result{
+            color:white;
+            position: absolute;
+            top: 130px;
+            left: 190px;
+        }
+        .showtext{
+            display: none;
+            font-weight: bold;
+        }
+        .showtextdisplay{
+            display: inline;
+            text-align: center;
+            font-weight: bold;
+            width:100px;
+            height: 50px;
+            padding-top:27px ;
+            padding-bottom:10px;
+            border: 6px solid rgb(5, 113, 1);
+            background-color: khaki;
+            border-top-left-radius:40px;
+            border-bottom-left-radius:40px;
+            border-top-right-radius:40px;
+            position: absolute;
+            top:90px;
+            left:-265px;
+            opacity: 0;
+
+            animation-name: showMag;
+            animation-duration: 2s;
+        }
+        @keyframes showMag {
+           0%{opacity: 0; left:-260; top:90px;}
+         100%{opacity: 1; left:-350; top:40px;}
+         }
+         #table1{
+            display: none;
+            color: white;
+            text-align: center;
+            position: relative;
+            top:50px;
+            left:160px;
+         }
+         #restartbt{
+            position: relative;
+            left: -30px;
+            width:100px;
+            height: 35px;
+         }
+    </style>
+</head>
+<body>
+    <div id="main">
+    <span> WelCome to Addition Game</span>
+    <img src="../image/monkey1.png" id="monkey1">
+    <img src="../image/monkey2.gif" id="monkey2">
+    <img src="../image/light_bulb.png" onclick="option()" id="light_bulb">
+    <img src="../image/onspeker.png" onclick="toggleMusic()" id="onspeker">
+    <img src="../image/playbutton.png" id="playbt" onclick="Content()"  onclick="playMusic()">
+    <audio id="bgMusic" autoplay loop><source src="../image/Make It Loud Edit02.mp3"></audio>
+    <audio id="clickSound" autoplay><source src="../image/clickSound.mp3"></audio>
+    <audio id="textSound" autoplay><source src="../image/WorngSound.mp3"></audio>
+    <audio id="timeoutsound" autoplay><source src="../image/timeout.mp3"></audio>
+    <div id="sub">
+        <h1 id="Timer"></h1>
+        <div id="playbutton" onclick="restart()"></div>
+        <span id="display"></span>
+        <input type="number" id="input">
+        <button onclick="Submit()" id="sumbit"> submit </button>
+        <h1 id="result"></h1>
+        <button id="option1" onclick="selectOption(event)"></button>
+        <button id="option2" onclick="selectOption(event)"></button>
+        <button id="option3" onclick="selectOption(event)"></button>
+        <button id="option4" onclick="selectOption(event)"></button>
+        <div id="showtextbox"></div>
+        <table id="table1">
+        <tr><td><h1 id="loose">Your Are loose</h1></td></tr>
+        <tr><td><h2 id="score"></h2></td></tr>
+        <tr><td><button id="restartbt" onclick="restart()" >ReStart</button></td></tr>
+        </table>
+    </div>
+    </div>
+    <script>
+       var bgMusic = document.getElementById("bgMusic");  //variables
+       var Timer = document.getElementById("Timer");
+       var clickSound = document.getElementById("clickSound");
+       var timeoutsound = document.getElementById("timeoutsound");
+       var textSound = document.getElementById("textSound");
+       var playbutton=document.getElementById("playbutton");
+       var playbt=document.getElementById("playbt");
+       var input=document.getElementById("input");
+       var sumbit=document.getElementById("sumbit");
+       var display=document.getElementById("display");
+       var result=document.getElementById("result");
+       var option1=document.getElementById("option1");
+       var option2=document.getElementById("option2");
+       var option3=document.getElementById("option3");
+       var option4=document.getElementById("option4");
+       var showtextbox = document.getElementById("showtextbox");
+       var table1=document.getElementById('table1');
+       var score=document.getElementById('score');
+       var restartbt=document.getElementById("restartbt");
+       var num1,num2,num3,InputValue,time=20,scorepoint=0,tm;
+
+        
+       function timer(){
+            time--;
+            Timer.textContent="Time :"+time;
+            if(time>0&&time<8){
+
+                if(time % 2 === 0){
+                Timer.style.color="red";
+                }else{
+                Timer.style.color="white";
+                }
+            }else{
+                Timer.style.color="white";
+            }
+
+            if(time<0){
+                timeoutsound.pause();
+                input.style.display="none";
+                sumbit.style.display="none";
+                display.style.display="none";
+                option1.style.display="none";
+                option2.style.display="none";
+                option3.style.display="none";
+                option4.style.display="none";
+                table1.style.display="inline";
+                score.textContent=scorepoint;
+                restartbt.style.display="inline";
+                result.textContent=" ";
+                clearInterval(tm);
+                time=22;
+                scorepoint=0;
+            }
+            if(time==10){
+                timeoutsound.currentTime = 0;
+                timeoutsound.play();
+            }
+       } 
+       function restart(){
+        tm=setInterval(timer,1000);
+        Content();
+        playMusic();
+       }
+
+            backgroundMusic();//call the function
+            function backgroundMusic() { //this is background music play time
+                bgMusic.play();
+            }
+
+            function toggleMusic() {
+                if (bgMusic.paused) {    //this is background music play and paused
+                    bgMusic.play();
+                    document.getElementById("onspeker").src ="../image/onspeker.png";
+                } else {
+                    bgMusic.pause();
+                    document.getElementById("onspeker").src ="../image/mute.png";
+                }
+            }
+
+
+            function Content(){ //this the content
+                input.value=null;
+                showtextbox.classList.remove("showtextdisplay");
+                showtextbox.classList.add("showtext");
+                bgMusic.src="../image/jungale.mpeg"
+                
+                 num1 = Math.floor(Math.random() * 100) + 1;
+                 num2 = Math.floor(Math.random() * 100) + 1;
+
+                 playbutton.style.display="none";
+                table1.style.display="none";
+                restartbt.style.display="none";
+                 playbt.style.display="none";
+                 input.style.display="inline";
+                 sumbit.style.display="inline";
+                 Timer.style.display="inline";
+                 display.style.display="inline";
+                 display.textContent=num1+" + "+num2+" = ";
+                 result.textContent=" ";
+            }
+            function Submit(){  //this is submit button function
+                clickSound.play();
+                InputValue=input.value;
+            num3=num1+num2;
+            if(InputValue==num3){
+                time=22;
+                scorepoint++;
+                timeoutsound.pause();
+
+                option1.style.display="none";
+                option2.style.display="none";
+                option3.style.display="none";
+                option4.style.display="none";
+                
+                showtextbox.classList.add("showtextdisplay");
+
+                var textboxoption = Math.floor(Math.random() * 4) + 1;
+                if(textboxoption==1){
+                showtextbox.innerHTML=" Good..! ";
+                textSound.src="../image/good.mp3";
+                }else if(textboxoption==2){
+                    showtextbox.textContent=" Nice.. ";
+                    textSound.src="../image/Nice.mp3";
+                }else if(textboxoption==3){
+                    showtextbox.textContent=" Super..! ";
+                    textSound.src="../image/super.mp3";
+                }else{
+                    showtextbox.textContent="Exselent..";
+                    textSound.src="../image/excellent.mp3";
+                }
+
+                result.textContent="Correct";
+                setTimeout( Content,2000);
+
+            }else{
+                showtextbox.classList.add("showtextdisplay");
+                var textboxoption = Math.floor(Math.random() * 4) + 1;
+                if(textboxoption==1){
+                showtextbox.innerHTML=" Oh.! No ";
+                textSound.src="../image/Oh_No.mp3";
+                }else if(textboxoption==2){
+                    showtextbox.textContent=" Sorry.. ";
+                    textSound.src="../image/sorry.mp3";
+                }else if(textboxoption==3){
+                    showtextbox.textContent=" Try Again..! ";
+                    textSound.src="../image/tryAgin.mp3"
+                }else{
+                    showtextbox.textContent="Don't Worry.. Try Again";
+                    textSound.src="../image/DontWarry.mp3";
+                }
+
+                setTimeout(TextBox,2000);
+                function TextBox(){
+                showtextbox.classList.remove("showtextdisplay");
+                showtextbox.classList.add("showtext");
+                }
+                result.textContent="Wrong";
+            }
+            }
+
+            function option(){  //this is option function
+                num3=num1+num2;
+                const choose = Math.floor(Math.random() *4);
+                option1.style.display="inline";
+                option2.style.display="inline";
+                option3.style.display="inline";
+                option4.style.display="inline";
+
+                var Asw1 = Math.floor(Math.random() * 15) + 1;
+                var Asw2 = Math.floor(Math.random() * 20) + 1;
+                var Asw3 = Math.floor(Math.random() * 10) + 1;
+                 
+                Asw1+=num3;
+                Asw2+=num3;
+                Asw3+=num3;
+
+                switch(choose){
+                    case 1:option1.textContent=num3;
+                           option2.textContent=Asw1;
+                           option3.textContent=Asw2;
+                           option4.textContent=Asw3;
+                        break;
+                    case 2:option1.textContent=num3;
+                       option2.textContent=Asw1;
+                       option3.textContent=Asw2;
+                       option4.textContent=Asw3;
+                        break;
+                    case 3:option1.textContent=num3;
+                           option2.textContent=Asw1;
+                           option3.textContent=Asw2;
+                           option4.textContent=Asw3;
+                        break;
+                    case 4:option1.textContent=num3;
+                       option2.textContent=Asw1;
+                       option3.textContent=Asw2;
+                       option4.textContent=Asw3;
+                    break;
+                default : option1.textContent=num3;
+                           option2.textContent=Asw1;
+                           option3.textContent=Asw2;
+                           option4.textContent=Asw3;
+                        break;
+                }
+            }
+
+            function selectOption(event){//this is set the value in input
+                clickSound.play();
+                input.value=event.target.innerText;
+            }
+
+    </script>
+</body>
+</html>
